@@ -2,9 +2,10 @@
 A small 1A constant current charger for motobike lead acid batteries. Capable to charge from dead state comes with minimal form factor.
 
 If you own a motorcycle, you already know the pain. I was little out of station for a couple of weeks and when I came home and gave a push to my bike, there was nothing. The battery is dead. Lead-acid batteries self-discharge over time, and if you don't ride often enough, the battery just slowly dies on you. Buying a new battery every few months is not an option. So, I used to charge manually on a workstation which costs me time and money. Even though most of them are using just a transformer with a rectifier, no regulation, no protection, just brute force current being dumped into the battery. But I am an electronics engineer and that’s how I decided to give a try to lead acid battery charging.
-The one that actually understands how to charge a battery properly. With trickle charge for deeply discharged batteries, constant current for bulk charging, over-charge for topping it off, and float charge to keep it maintained without overcharging. The whole charging profile, done right. That's where the CN3767 comes in. It's a dedicated 12V lead-acid battery charger controller IC from Consonance Electronics that does everything I just described. I have designed a PCB in EasyEDA and fabricated it from JLCPCB and tested out the final prototype.
+The one that actually understands how to charge a battery properly. With trickle charge for deeply discharged batteries, constant current for bulk charging, over-charge for topping it off, and float charge to keep it maintained without overcharging. The whole charging profile, done right. That's where the CN3767 comes in. It's a dedicated 12V lead-acid battery charger controller IC from Consonance Electronics that does everything I just described. I have designed a PCB in EasyEDA and fabricated it from [JLCPCB](https://jlcpcb.com/?from=audrey3) and tested out the final prototype. 
 
 **Why CN3767?**
+
 There are a lot of battery charger ICs in the market, but for 12V lead-acid specifically, the options narrow down quickly. Most charger ICs are designed for Li-ion and Li-Po. The CN3767 is purpose-built for 12V lead-acid batteries, and that makes the design so much cleaner.
 
 Features:
@@ -98,7 +99,7 @@ If you want exactly 1A, use a 0.12 ohm resistor instead. The schematic includes 
 
 I have tried to make the PCB as small as possible, because mine one is made to handle a max of 1A for now the design is not so critical. But we have to keep some rules in mind when using a switching convertor IC like this one. I have kept the switching loops tight; the traces connecting D1, D2, Q2 (MOSFET), L1 (inductor) and input bypass capacitors should be as short as possible. These carry high-frequency switching currents and long traces act as antennas. I have poured the GND copper pour on both sides, keeping the minimal via’s in the path of trace. Kept the DRV to MOSFET gate connection short to minimize ringing and gate drive losses. Place the decaps on the right position, input and output caps at the end of IO pads.
 
-You can download the Gerber files along with BOM and CPL from here. I have used JLCPCB for manufacturing because their services are available in a wide domain with reasonable prices. And because I have designed the PCB in easyEDA online which has an integration with JLCPCB. At least this can give me a peace of mind over the files.
+You can download the Gerber files along with BOM and CPL from here. I have used JLCPCB for manufacturing because their services are available in a wide domain with reasonable prices. And because I have designed the PCB in easyEDA online which has an integration with [JLCPCB](https://jlcpcb.com/?from=audrey3). At least this can give me a peace of mind over the files.
 
 **Assembling the PCB:**
 
